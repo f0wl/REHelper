@@ -1,5 +1,5 @@
 # System shit
-import sys
+import sys, os
 # Crypto shit
 import hashlib
 # Color shit
@@ -12,6 +12,8 @@ import re
 import math
 # String shit cuz Python3 bytes/string bullshit sucks dick
 import string
+# YARA shit
+import yara
 
 
 RED = fg(255, 0, 0)
@@ -149,3 +151,26 @@ def query_yes_no(question, default="yes"):
             sys.stdout.write("Please respond with 'yes' or 'no' "
                              "(or 'y' or 'n').\n")
 # </steal>
+
+def yara_packer(filename: str) -> list:
+    rules = yara.compile("rules/Packers_index.yar")
+    return rules.match(filename)
+
+def yara_malware(filename: str) -> list:
+    rules = yara.compile("rules/malware_index.yar")
+    return rules.match(filename)
+
+def yara_antitricks(filename: str) -> list:
+    rules = yara.compile("rules/Antidebug_AntiVM_index.yar")
+    return rules.match(filename)
+
+def yara_cve(filename: str) -> list:
+    rules = yara.compile("rules/CVE_Rules_index.yar")
+    return rules.match(filename)
+
+def yara_crypto(filename: str) -> list:
+    rules = yara.compile("rules/Crypto_index.yar")
+    return rules.match(filename)
+
+def get_size(filename: str) -> str:
+    return os.path.getsize(filename)

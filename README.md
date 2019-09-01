@@ -43,6 +43,7 @@ Sample output:
 git clone https://github.com/TheDuchy/REHelper
 cd REHelper
 python3 -m pip install -r requirements.txt
+git clone https://github.com/Yara-Rules/rules
 ```
 
 You can then launch the `main.py` script:
