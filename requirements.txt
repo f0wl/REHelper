@@ -2,3 +2,4 @@ pyelftools
 pefile
 sty
 requests
+terminaltables
