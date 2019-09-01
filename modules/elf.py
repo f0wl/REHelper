@@ -5,7 +5,7 @@ from elftools.elf.sections import NullSection
 # ASCII shit
 from terminaltables import AsciiTable
 # Common shit
-from modules.utils import GREEN, RED, RESET, file_sha256sum, tinyurl, file_all_strings, file_interesting_strings, file_entropy
+from modules.utils import GREEN, RED, RESET, file_sha256sum, tinyurl, file_size, file_all_strings, file_interesting_strings, file_entropy
 
 def print_basic_info(filename: str) -> None:
     with open(filename, "rb") as f:
@@ -37,6 +37,7 @@ def print_basic_info(filename: str) -> None:
 
         info_table = [
             ["Filename:", filename],
+            ["Filesize:", file_size(filename)],
             ["Filetype:", GREEN + "ELF " + str(elffile.get_machine_arch()) + RESET],
             ["Subsystem:", GREEN + describe_e_type(elffile.header['e_type']) + RESET],
             ["SHA256:", filesha],
