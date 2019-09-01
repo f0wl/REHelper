@@ -37,7 +37,7 @@ def print_basic_info(filename: str) -> None:
 
         info_table = [
             ["Filename:", filename],
-            ["Filetype:", GREEN + "ELF " + str(elffile.get_machine_arch())],
+            ["Filetype:", GREEN + "ELF " + str(elffile.get_machine_arch()) + RESET],
             ["Subsystem:", GREEN + describe_e_type(elffile.header['e_type']) + RESET],
             ["SHA256:", filesha],
             ["VT link:", vtlink],
