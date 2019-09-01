@@ -3,3 +3,4 @@ pefile
 sty
 requests
 terminaltables
+yara-python
