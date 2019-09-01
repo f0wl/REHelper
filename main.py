@@ -38,6 +38,8 @@ for x in interesting_strings:
                 if c % 4 == 0 and c > 0:
                     string += "\n"
                 string += y + " "
+            if not string.strip():
+                string = util.RED + "None" + util.RESET
             tmp.append([x + ":", string])
 
 strings_table = [
@@ -72,6 +74,16 @@ for c, match in enumerate(util.yara_crypto(args.inname)):
 yara_table = [
     ["Yara category", "Match"],
 ]
+if not y_packer.strip():
+    y_packer = util.RED + "None" + util.RESET
+if not y_malware.strip():
+    y_malware = util.RED + "None" + util.RESET
+if not y_cve.strip():
+    y_cve = util.RED + "None" + util.RESET
+if not y_antitricks.strip():
+    y_antitricks = util.RED + "None" + util.RESET
+if not y_crypto.strip():
+    y_crypto = util.RED + "None" + util.RESET
 yara_table.append(["Signatures:", y_packer])
 yara_table.append(["Malware:", y_malware])
 yara_table.append(["CVE:", y_cve])
