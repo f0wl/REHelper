@@ -3,7 +3,7 @@ import pefile
 # ASCII shit
 from terminaltables import AsciiTable
 # Common shit
-from modules.utils import GREEN, RED, RESET, file_sha256sum, tinyurl, file_all_strings, file_interesting_strings, file_entropy
+from modules.utils import GREEN, RED, RESET, file_sha256sum, tinyurl, file_size, file_all_strings, file_interesting_strings, file_entropy
 
 def print_basic_info(filename: str) -> None:
     pe_file = pefile.PE(filename, fast_load=True) # ELF object
@@ -34,6 +34,7 @@ def print_basic_info(filename: str) -> None:
 
     info_table = [
         ["Filename:", filename],
+        ["Filesize:", file_size(filename)],
         ["Filetype:", GREEN + "PE " + str(pefile.MACHINE_TYPE[pe_file.FILE_HEADER.Machine] + RESET)],
         ["Subsystem:", str(GREEN + pefile.SUBSYSTEM_TYPE[pe_file.OPTIONAL_HEADER.Subsystem] + RESET)],
         ["SHA256:", filesha],

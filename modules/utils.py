@@ -30,6 +30,11 @@ def tinyurl(url: str) -> str:
     except:
         return ""
 
+def file_size(filename: str) -> str:
+    rawsize = os.stat(filename).st_size 
+    filesize = str(rawsize) + " (" + str(rawsize >> 10) + " KiB)"
+    return filesize
+
 # Proudly stolen from:
 # https://stackoverflow.com/questions/6804582/extract-strings-from-a-binary-file-in-python
 # <steal>
