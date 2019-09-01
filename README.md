@@ -5,8 +5,9 @@ Sample output:
 
 ```
 +Basic Information----------------------------------------------------------------------+
-| Filename:   | readelf.exe                                                             |
+| Filename:   | .\readelf.exe                                                           |
 +-------------+-------------------------------------------------------------------------+
+| Filesize:   | 617998 (603 KiB)                                                        |
 | Filetype:   | PE IMAGE_FILE_MACHINE_I386                                              |
 | Subsystem:  | IMAGE_SUBSYSTEM_WINDOWS_CUI                                             |
 | SHA256:     | 687370a88d273a172004c9ebc2ca0e8994cb6e7107b8ff5b3bebfede4037d352        |
@@ -18,24 +19,31 @@ Sample output:
 | Entrypoint: | 0x12e0                                                                  |
 +-------------+-------------------------------------------------------------------------+
 
-+---------------------+------------------------------------------------------+
-| Domains:            | 0@.bs ar.pf sourceware.org/bugzilla/> gnu.link       |
-|                     | gnu.link gnu.link Sym.Va                             |
-|                     | Sym.Va Sym.Va v8-M.ba                                |
-|                     | v8-M.ma ar.bs ar.bs                                  |
-|                     | ar.pf ar.lc fs.ba                                    |
-|                     | gs.ba                                                |
-| Ips:                |                                                      |
-| Paths:              | \3S03K4 \3C03S4 /300H /32/64-bit                     |
-|                     | /file //www /binutils-2                              |
-|                     | /binutils/readelf /soft /Value                       |
-|                     | /VR4181 /mingw/share/locale /FP-D16                  |
-|                     | /parse /binutils-2 /binutils/elfcomm                 |
-|                     | /SYM64/ //TRANSLIT /mingw/share/locale               |
-|                     | \Desktop\ResourceLocale /locale /mingw/share/locale  |
-|                     | /0123456789 /0123456789 /lengths                     |
-|                     | /length /length                                      |
-+---------------------+------------------------------------------------------+
++---------------------+-----------------------------------------------------------------+
+| Interesting Strings | STILL IN BETA ;)                                                |
++---------------------+-----------------------------------------------------------------+
+| Domains:            | 0@.bs ar.pf sourceware.org/bugzilla/> gnu.link                  |
+|                     | gnu.link gnu.link Sym.Va Sym.Va                                 |
+|                     | Sym.Va v8-M.ba v8-M.ma ar.bs                                    |
+|                     | ar.bs ar.pf ar.lc fs.ba                                         |
+|                     | gs.ba                                                           |
+| Ips:                | None                                                            |
+| Paths:              | \3S03K4 \3C03S4 /300H /32/64-bit                                |
+|                     | /soft /Value /VR4181 /mingw/share/locale                        |
+|                     | /FP-D16 /parse /binutils-2 /binutils/elfcomm                    |
+|                     | /SYM64/ //TRANSLIT /mingw/share/locale \Desktop\ResourceLocale  |
+|                     | /lengths /length /length                                        |
++---------------------+-----------------------------------------------------------------+
+
++---------------+----------------------------------+
+| Yara category | Match                            |
++---------------+----------------------------------+
+| Signatures:   | IsPE32 IsConsole HasOverlay      |
+| Malware:      | None                             |
+| CVE:          | None                             |
+| Antitricks:   | None                             |
+| Crypto:       | CRC32_poly_Constant CRC32_table  |
++---------------+----------------------------------+
 ```
 
 ## How to install
