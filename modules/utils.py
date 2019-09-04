@@ -10,8 +10,6 @@ import requests
 import re
 # OK lol
 import math
-# String shit cuz Python3 bytes/string bullshit sucks dick
-import string
 # YARA shit
 import yara
 
